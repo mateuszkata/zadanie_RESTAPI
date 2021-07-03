@@ -3,7 +3,7 @@ from collections import Counter
 
 app = Flask(__name__)
 
-words = ["apple", "banana", "chair"]
+words = ["apple", "banana", "chair", "apple"]
 
 
 @app.route("/wordlist", methods=['GET'])
