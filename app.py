@@ -25,7 +25,7 @@ def delete(word):
 
 
 @app.route("/wordlist/unique", methods=['GET'])
-def unique(words):
+def unique():
     list_of_unique_words = set()
     for word in words:
         list_of_unique_words.append(word)
