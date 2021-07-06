@@ -23,16 +23,15 @@ It is a REST API which allows:
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-
-Proceed to describe how to install / setup one's local environment / get started with the project.
+1) Download and install Python from https://www.python.org/downloads/ (if you haven't done it before)
+2) Download and install PyCharm or another IDE for Python
+3) Download and install Postman
 
 
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-`write-your-code-here`
+1) Open app.py file with PyCharm 
+2) Run it in Terminal by writing "python py.app"
+3) Open Postman and choose method and route depending on result you would like to get (when using POST write your request in body section in JSON style like {"word" : "example"}
 
 
 
