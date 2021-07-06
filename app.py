@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, request
-from collections import Counter
 
 app = Flask(__name__)
 
@@ -13,9 +12,9 @@ def get():
 
 @app.route("/wordlist", methods=['POST'])
 def create():
-    word = request.data
+    word = request.get_json()['word']
     words.append(word)
-    return jsonify({'list_of_words': words}), 202
+    return jsonify({'list_of_words': words})
 
 
 @app.route("/wordlist/<word>", methods=['DELETE'])
@@ -26,16 +25,13 @@ def delete(word):
 
 @app.route("/wordlist/unique", methods=['GET'])
 def unique():
-    list_of_unique_words = set()
-    for word in words:
-        list_of_unique_words.append(word)
-    return jsonify({'list_of_words': list_of_unique_words})
+    list_of_unique_words = set(words)
+    return jsonify({'list_of_words': list(list_of_unique_words)})
 
 
-@app.route("/wordlist/count", methods=['GET'])
-def count():
-    counts = dict(Counter(words))
-    return jsonify({'counter': counts})
+@app.route("/wordlist/<word>", methods=['GET'])
+def count(word):
+    return jsonify({'counter': words.count(word)})
 
 
 if __name__ == '__main__':
